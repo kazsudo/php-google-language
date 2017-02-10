@@ -1,0 +1,35 @@
+<?php
+namespace KazSudo\Google\Language\Test;
+
+use KazSudo\Google\Language\AnalyzeCommand;
+use Symfony\Component\Console\Application;
+use Symfony\Component\Console\Tester\CommandTester;
+
+class AnalyzeCommandTest extends \PHPUnit_Framework_TestCase
+{
+  private $commandTester;
+  public function setUp()
+  {
+    $application = new Application();
+    $application->add(new AnalyzeCommand());
+    $this->commandTester = new CommandTester($application->get('analyze'));
+  }
+  public function testAnalyzeTextFromCloudStorage()
+  {
+    $this->commandTester->execute(
+        ['file' =>  'gs://your bucket/your text file', '--name' => 'phpunit-test.txt'],
+        ['interactive' => false]
+    );
+    $output = $this->commandTester->getDisplay();
+    $this->assertEquals("Saved as name:phpunit-test.txt\n", $output);
+  }
+  public function testAnalyzeTextFromLocalFile()
+  {
+    $this->commandTester->execute(
+        ['file' =>  'path to local file', '--name' => 'phpunit-test.txt'],
+        ['interactive' => false]
+    );
+    $output = $this->commandTester->getDisplay();
+    $this->assertEquals("Saved as name:phpunit-test.txt\n", $output);
+  }
+}

@@ -1,0 +1,9 @@
+<?php
+return [
+  "google_cloud" => [
+    "key_file_path" => "Service account key JSON path",
+  ],
+  "google_cloud_datastore" => [
+    "kind" => "language",
+  ],
+];

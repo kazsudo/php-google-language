@@ -1,0 +1,6 @@
+app/auth.json
+app/config.php
+tests/AnalyzeCommandTest.php
+vendor/
+web/.sass-cache/
+composer.lock
