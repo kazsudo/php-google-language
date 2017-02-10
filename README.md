@@ -3,6 +3,8 @@
 - Analyze text using [Natural Language API](https://cloud.google.com/natural-language/) and save response to [Cloud Datastore](https://cloud.google.com/datastore/).
 - Visualize syntax structure as tree diagram
 
+![tree](https://cloud.githubusercontent.com/assets/16376589/22847467/566f5a40-f030-11e6-9c90-5e9c60bc3ef3.png)
+
 ## Requirement
 
 - composer `>=1.0.0`
@@ -72,3 +74,5 @@ Input text file name and press `View` button.
 ```
 http://localhost:8000/view.php?name=text.txt
 ```
+
+Click one of the sentences to display the tree.
