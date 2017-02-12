@@ -18,7 +18,7 @@ if(isset($_GET['name']) && $_GET['name']){
 <meta charset="UTF-8">
 <title>View <?php if($name && $data){ printf(" %s", $name); } ?></title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<link rel="stylesheet" href="./res/css/view.css">
+<link rel="stylesheet" href="./res/css/layout.css">
 <script src="./res/js/view.js"></script>
 </head>
 <body>
