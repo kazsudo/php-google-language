@@ -19,11 +19,16 @@ html { background-color: #fff; color: #000; }
 
 body { font-size: 16px; font-family: "Yu Gothic Medium", YuGothic, sans-serif; }
 
-form { padding: 20px; font-size: 12px; }
+form { font-size: 12px; }
+form + form { margin-top: 20px; }
 form input[type=text] { width: 200px; }
+form textarea { display: block; margin-bottom: 5px; width: 600px; height: 200px; }
+form h1 { margin-bottom: 10px; font-size: 14px; font-weight: bold; }
 form .message { margin-top: 20px; }
 
 .token > .content { display: inline-block; position: relative; }
+
+#input { padding: 20px; }
 
 #list { padding: 20px; }
 #list .token.on { color: #8C9EFF; }
@@ -37,6 +42,7 @@ form .message { margin-top: 20px; }
 #list .sentence { line-height: 140%; }
 #list .sentence + .sentence { margin-top: 7px; }
 #list .sentence .alltext { display: none; }
+#list form { margin-top: 20px; }
 
 #tree { display: none; }
 #tree .back { position: fixed; top: 0px; left: 0px; z-index: 11; width: 40px; height: 40px; background: url('../img/Back_Arrow.svg?1486686134') no-repeat 50% 50%; border-radius: 50%; font-size: 0; text-indent: -9999px; line-height: 0; cursor: pointer; opacity: 0.3; }

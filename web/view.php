@@ -7,10 +7,16 @@ use KazSudo\Google\Language\ServiceWrapper;
 $language = new ServiceWrapper(__DIR__.'/../app/config.php');
 
 $name = null;
+$content = null;
 $data = null;
 if(isset($_GET['name']) && $_GET['name']){
   $name = $_GET['name'];
   $data = $language->getEntityFromDataStore($name);
+}
+else if(isset($_POST['content']) && $_POST['content']){
+  $content = $_POST['content'];
+  $name = mb_strimwidth($content, 0, 10, '...');
+  $data = $language->annotateText($content);
 }
 ?><!DOCTYPE html>
 <html lang="ja">
@@ -23,12 +29,21 @@ if(isset($_GET['name']) && $_GET['name']){
 </head>
 <body>
 <?php if(is_null($data)){ ?>
+<section id="input">
 <form>
+<h1>View from DataStore</h1>
 <input type="text" name="name" value="" placeholder="Google DataStore name">
 <input type="submit" value="View">
 </form>
+
+<form method="post">
+<h1>View from Text</h1>
+<textarea name="content"></textarea>
+<input type="submit" value="View">
+</form>
+</section>
 <?php }else{ ?>
-<div id="list" lang="<?php echo $data['language']; ?>">
+<section id="list" lang="<?php echo $data['language']; ?>">
 <div id="sentence-0" class="sentence">
 <?php
 $entity_offsets = [];
@@ -117,10 +132,16 @@ for($index = 0; $index < $limit; $index++){
 }
 ?>
 </div>
-</div>
-<div id="tree">
+<?php if(!is_null($content)){ ?>
+<form method="post">
+<textarea name="content"><?php echo $content; ?></textarea>
+<input type="submit" value="View">
+</form>
+<?php } ?>
+</section>
+<section id="tree">
   <nav class="back">back</nav>
-</div>
+</section>
 <?php } ?>
 </body>
 </html>

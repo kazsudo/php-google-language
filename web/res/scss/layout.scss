@@ -14,10 +14,23 @@ body {
 }
 
 form {
-  padding: 20px;
   font-size: 12px;
+  + form {
+    margin-top: 20px;
+  }
   input[type=text] {
     width: 200px;
+  }
+  textarea {
+    display: block;
+    margin-bottom: 5px;
+    width: 600px;
+    height: 200px;
+  }
+  h1 {
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: bold;
   }
   .message {
     margin-top: 20px;
@@ -29,6 +42,10 @@ form {
     display: inline-block;
     position: relative;
   }
+}
+
+#input {
+  padding: 20px;
 }
 
 #list {
@@ -84,6 +101,9 @@ form {
     .alltext {
       display: none;
     }
+  }
+  form {
+    margin-top: 20px;
   }
 }
 
