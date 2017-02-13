@@ -19,8 +19,9 @@ html { background-color: #fff; color: #000; }
 
 body { font-size: 16px; font-family: "Yu Gothic Medium", YuGothic, sans-serif; }
 
-form { padding: 20px; }
+form { padding: 20px; font-size: 12px; }
 form input[type=text] { width: 200px; }
+form .message { margin-top: 20px; }
 
 .token > .content { display: inline-block; position: relative; }
 

@@ -18,6 +18,18 @@ class ServiceWrapper
     $this->config = include $config_file_path;
   }
 
+  public function analyzeText($content, $name){
+    $info = $this->annotateText($content);
+    if($info){
+      $info['_name'] = $name;
+      $ret = $this->saveToDataStore($info);
+      if($ret){
+        return ['_id' => $ret, '_name' => $info['_name']];
+      }
+    }
+    return null;
+  }
+
   public function annotateText($content)
   {
     $options = ['features' => ['entities', 'syntax', 'sentiment']];

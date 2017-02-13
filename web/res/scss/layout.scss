@@ -15,8 +15,12 @@ body {
 
 form {
   padding: 20px;
+  font-size: 12px;
   input[type=text] {
     width: 200px;
+  }
+  .message {
+    margin-top: 20px;
   }
 }
 
